@@ -1,0 +1,30 @@
+buildscript {
+    repositories { gradlePluginPortal() }
+    dependencies { classpath 'gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0' }
+}
+
+repositories { gradlePluginPortal()
+    mavenCentral()
+}
+
+// Apply plugins.
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+// Project variables.
+mainClassName = 'xyz.br.velosh.projektyumi.hakalle.Main'
+group 'xyz.br.velosh.projektyumi.hakalle'
+version '0.1'
+
+// We use GraalVM 17 as our default JDK source.
+sourceCompatibility = 17
+
+dependencies {
+    implementation group: 'org.telegram', name: 'telegrambots', version: '5.6.0'
+    implementation group: 'com.hierynomus', name: 'sshj', version: '0.32.0'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.7'
+    implementation group: 'com.squareup.okio', name: 'okio', version: '3.0.0'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation group: 'com.annimon', name: 'tgbots-module', version: '5.6.0'
+}

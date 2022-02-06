@@ -1,0 +1,11 @@
+.*
+*.yaml
+!/.gitignore
+build/
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore yGSI/ErfanGSIs folders
+yGSI
+ErfanGSIs
