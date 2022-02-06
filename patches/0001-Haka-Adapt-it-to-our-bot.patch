@@ -1,0 +1,68 @@
+From 86ce03ddf8956100afda41c623189c59f874e25f Mon Sep 17 00:00:00 2001
+From: Hakalle <xdhakalle@gmail.com>
+Date: Sun, 6 Feb 2022 13:14:40 -0300
+Subject: [PATCH] Haka: Adapt it to our bot
+
+Signed-off-by: Hakalle <xdhakalle@gmail.com>
+---
+ make.sh            |  4 ++--
+ scripts/getinfo.sh | 23 ++++++++++++-----------
+ 2 files changed, 14 insertions(+), 13 deletions(-)
+
+diff --git a/make.sh b/make.sh
+index d474417..78c73f1 100755
+--- a/make.sh
++++ b/make.sh
+@@ -222,7 +222,7 @@ else
+     outdir="$4"
+ fi
+ output="$outdir/$outputimagename"
+-outputinfo="$outdir/$outputtextname"
++outputinfo="$outdir/README.md"
+ 
+ $scriptsdir/getinfo.sh "$systemdir/system" > "$outputinfo"
+ 
+@@ -248,7 +248,7 @@ bytesToHuman() {
+     done
+     echo "$b$d ${S[$s]}"
+ }
+-echo "Raw Image Size: $(bytesToHuman $systemsize)" >> "$outputinfo"
++echo "- Raw Image Size: $(bytesToHuman $systemsize)" >> "$outputinfo"
+ 
+ echo "Creating Image: $outputimagename"
+ # Use ext4fs to make image in P or older!
+diff --git a/scripts/getinfo.sh b/scripts/getinfo.sh
+index fc5e951..c8dd7b5 100755
+--- a/scripts/getinfo.sh
++++ b/scripts/getinfo.sh
+@@ -28,15 +28,16 @@ description=$(grep -oP "(?<=^ro.build.description=).*" -hs "$SYSTEMDIR"/build*.p
+ [[ -z "${description}" ]] && description=$(grep -oP "(?<=^ro.system.build.description=).*" -hs "$SYSTEMDIR"/build*.prop)
+ [[ -z "${description}" ]] && description="$flavor $release $id $incremental $tags"
+ 
+-printf "Android Version: $release
+-Brand: $brand
+-Model: $model
+-Codename: $codename
+-Build Type: $flavor
+-Build Number: $id
+-Incremental: $incremental
+-Tags: $tags
+-Security Patch: $spl
+-Fingerprint: $fingerprint
+-Description: $description
++printf "# Information about this system image
++- Android Version: $release
++- Brand: $brand
++- Model: $model
++- Codename: $codename
++- Build Type: $flavor
++- Build Number: $id
++- Incremental: $incremental
++- Tags: $tags
++- Security Patch: $spl
++- Fingerprint: $fingerprint
++- Description: $description
+ "
+-- 
+2.35.1
+

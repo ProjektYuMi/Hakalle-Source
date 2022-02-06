@@ -39,5 +39,8 @@ Hakalle is a bot originally developed by [Velosh](https://t.me/Velosh), in order
  - How to run the bot:
     ```$ java -jar hakalle/build/libs/hakalle-0.1-all.jar```
 
+## Necessary patches to ErfanGSIs
+- Check `patches` folder.
+
 ## Credits
 - [VegaZS](https://github.com/VegaBobo)
