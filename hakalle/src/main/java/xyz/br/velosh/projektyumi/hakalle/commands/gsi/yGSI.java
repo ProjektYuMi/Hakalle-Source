@@ -407,9 +407,9 @@ public class yGSI implements CommandBundle<For> {
                 editMessageTextMethod.setText(stringBuilder.toString())
                         .callAsync(callbackQueryContext.sender);
 
-                // TODO: Do the check via working/system instead.
-                // Enable cancellable task if we're going good.
-                if (line.contains("System image successfully mounted"))
+                // Check whether the system partition is mounted, and
+                // if it is mounted: Make the GSI operation cancelable.
+                if (ToolUtils.isSystemMounted())
                     editMessageTextMethod.setReplyMarkup(InlineKeyboardMarkup.builder().keyboard(keyboard).build())
                             .callAsync(callbackQueryContext.sender);
             }

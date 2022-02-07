@@ -37,4 +37,12 @@ public class ToolUtils {
         File file = new File(String.valueOf(mPath));
         return file.exists();
     }
+
+    /*
+     * Check whether the system partition has already been mounted or not.
+     */
+    public static boolean isSystemMounted() {
+        File file = new File(String.valueOf(mPath + "/working/system"));
+        return file.isDirectory() && file.exists();
+    }
 }
