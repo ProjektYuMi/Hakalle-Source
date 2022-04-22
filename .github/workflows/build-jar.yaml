@@ -35,5 +35,5 @@ jobs:
       - name: Upload Hakalle jar
         uses: actions/upload-artifact@v3
         with:
-          name: haka
-          path: haka/build/libs/*.jar
+          name: hakalle
+          path: hakalle/build/libs/hakalle-0.1-all.jar
