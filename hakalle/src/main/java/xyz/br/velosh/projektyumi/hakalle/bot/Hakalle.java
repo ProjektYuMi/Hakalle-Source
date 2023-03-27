@@ -56,9 +56,10 @@ public class Hakalle extends BotHandler {
     private final CommandRegistry<For> commands;
 
     public Hakalle(BotConfig botConfig) {
+        super(botConfig.getToken());
         Hakalle.botConfig = botConfig;
-        final var authority = new SimpleAuthority(this, botConfig.getCreatorId());
-        commands = new CommandRegistry<>(this, authority);
+        final var authority = new SimpleAuthority(botConfig.getCreatorId());
+        commands = new CommandRegistry<>(botConfig.getUsername(), authority);
 
         logger.info("Initializing the commands...");
         commands.registerBundle(new Calculator());
@@ -79,17 +80,12 @@ public class Hakalle extends BotHandler {
 
     @Override
     protected BotApiMethod<?> onUpdate(@NotNull Update update) {
-        new Thread(() -> commands.handleUpdate(update)).start();
+        new Thread(() -> commands.handleUpdate(this, update)).start();
         return null;
     }
 
     @Override
     public String getBotUsername() {
         return botConfig.getUsername();
-    }
-
-    @Override
-    public String getBotToken() {
-        return botConfig.getToken();
     }
 }
