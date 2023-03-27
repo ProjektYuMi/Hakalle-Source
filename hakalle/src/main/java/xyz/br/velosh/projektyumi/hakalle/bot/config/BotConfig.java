@@ -40,7 +40,7 @@ public class BotConfig {
     private String sfProject;
 
     @JsonProperty(required = true)
-    private Integer creatorId;
+    private Long creatorId;
 
     @JsonProperty(required = true)
     private Long privateChatId;
@@ -82,11 +82,11 @@ public class BotConfig {
         this.username = username;
     }
 
-    public Integer getCreatorId() {
+    public Long getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(Integer creatorId) {
+    public void setCreatorId(Long creatorId) {
         this.creatorId = creatorId;
     }
 
