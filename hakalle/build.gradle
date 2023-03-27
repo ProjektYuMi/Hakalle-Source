@@ -21,10 +21,10 @@ version '0.1'
 sourceCompatibility = 17
 
 dependencies {
-    implementation group: 'org.telegram', name: 'telegrambots', version: '5.7.0'
-    implementation group: 'com.hierynomus', name: 'sshj', version: '0.32.0'
-    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
-    implementation group: 'com.squareup.okio', name: 'okio', version: '3.0.0'
+    implementation group: 'org.telegram', name: 'telegrambots', version: '6.5.0'
+    implementation group: 'com.hierynomus', name: 'sshj', version: '0.35.0'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.6'
+    implementation group: 'com.squareup.okio', name: 'okio', version: '3.3.0'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-    implementation group: 'com.annimon', name: 'tgbots-module', version: '5.7.0'
+    implementation group: 'com.annimon', name: 'tgbots-module', version: '6.5.1'
 }
